@@ -1,11 +1,11 @@
-let userName = prompt('Digite seu nome:');
-let userAge = prompt('Digite sua idade:');
+let userName = prompt('Type your name:');
+let userAge = prompt('Type your age:');
 let i = 0;
 
 while(i==0){
     if(isNaN(userAge) || userAge == 0){
-        alert('Número inválido!');
-        userAge = prompt('Digite sua idade:');
+        alert("Invalid number!");
+        userAge = prompt("Type your age:");
     }
     else{
         i++;
@@ -13,14 +13,14 @@ while(i==0){
 }
 
 function isThomasAnderson(name){
-    if(name.toLowerCase().replace(/ /g, '') == 'thomasanderson') return true;
+    if(name.toLowerCase().replace(/ /g, "") == "thomasanderson") return true;
 }
 
 document.write(
-    `Olá ${userName}, você é ${(userAge >= 18) ? 'maior' : 'menor'} de idade! 
-    ${(isThomasAnderson(userName)) ? 'E você é um personagem do filme Matrix!' : ''}`
+    `Hello ${userName}, you're ${(userAge >= 18) ? "underage" : "of age"}! 
+    ${(isThomasAnderson(userName)) ? "And you're a character from Matrix!" : ""}`
 );
 
-//CRIAR BUTTON 'ENTRAR' QUE VAI TRIGGAR O SCRIPT
-//PRINTAR A MENSAGEM NUM H1
-//PRINTAR A MENSAGEM ESPECIAL NUM H2
+//CREATE HTML BUTTON 'ENTER' THAT TRIGGERS THE SCRIPT
+//PRINT MESSAGE IN H1
+//PRINT ESPECIAL MESSAGE IN H2
