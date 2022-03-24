@@ -6,7 +6,7 @@ class ButtonTimesTable{
     }
 
     init(){
-        this.buttonCalculate.addEventListener('click', e=>{
+        this.buttonCalculate.addEventListener("click", e=>{
             let tableDesired = prompt("What table do you wanna get?");
             let i = 0;
 

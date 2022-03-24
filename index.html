@@ -3,17 +3,32 @@
     <head>
         <meta charset="utf-8">
         <title>Exercícios</title>
+        <style>
+            body{
+                font-family: sans-serif;
+            }
+
+            .actor{
+                margin: 20px;
+                padding: 20px;
+                background: rgb(230, 230, 230);
+                border-radius: 6px;
+                box-shadow: 2px 2px 2px black;
+            }
+        </style>
     </head>
     <body>
         <div id="buttons">
             <button id="button-enter">Enter</button>
             <button id="button-timestable">Calculate Times Table</button>
+            <button id="button-actors">Get List of Actors</button>
         </div>
-        <div id="div-messages">
-        </div>
+        <div id="div-messages"></div>
+        <div id="div-boxes"></div>
 
         <script src="script/buttonEnterController.js"></script>
         <script src="script/buttonTimesTableController.js"></script>
+        <script src="script/buttonActorsController.js"></script>
         <script src="index.js"></script>
     </body>
 </html>
