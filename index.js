@@ -17,7 +17,7 @@ function isThomasAnderson(name){
 }
 
 document.write(
-    `Hello ${userName}, you're ${(userAge >= 18) ? "underage" : "of age"}! 
+    `Hello ${userName}, you're ${(userAge >= 18) ? "of age" : "underage"}! 
     ${(isThomasAnderson(userName)) ? "And you're a character from Matrix!" : ""}`
 );
 
