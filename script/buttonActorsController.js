@@ -28,7 +28,7 @@ class ButtonActors{
 
             for(let i = 0; i < actors.length; i++){
                 let divActorBox = document.createElement('div');
-                divActorBox.classList.add("actor");
+                divActorBox.setAttribute("class", "actor");
                 divActorBox.innerHTML = `
                     <h3>${actors[i].name}</h3>
                     <p>Plays the character ${actors[i].character} in the movie ${actors[i].movie}.</p>
