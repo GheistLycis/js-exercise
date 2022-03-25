@@ -6,7 +6,7 @@ class ButtonEnter{
     }
 
     init(){
-        this.buttonEnter.addEventListener("click", e=>{
+        this.buttonEnter.addEventListener("click", ()=>{
             let userName = this.setUserName();
             let userAge = this.setUserAge();
     

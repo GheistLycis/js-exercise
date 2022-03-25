@@ -23,7 +23,7 @@ class ButtonActors{
     }
 
     init(){
-        this.buttonActors.addEventListener("click", e=>{
+        this.buttonActors.addEventListener("click", ()=>{
             let actors = this.actorsList;
 
             for(let i = 0; i < actors.length; i++){
