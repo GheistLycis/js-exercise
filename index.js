@@ -2,3 +2,4 @@ let buttonEnter = new ButtonEnter("div-messages", "button-enter");
 let buttonTimesTable = new ButtonTimesTable("div-messages", "button-timestable");
 let buttonActors = new ButtonActors("div-boxes", "button-actors");
 let buttonCounter = new ButtonCounter("div-messages", "button-counter");
+let buttonCities = new ButtonCities("div-messages", "button-cities");
