@@ -11,7 +11,7 @@ class ButtonCounter{
 Problems:
     -When buttonCounter is clicked more than once, the addEventListener seems to stack and the manual counters will
     add/subtract according to the number of times buttonCounter has been clicked;
-
+    
     -Although this has no practical/notable effects, when clicking on another button from the top panel after 
     activating the auto counter the adding/subtracting event won't stop until the user clicks on the buttonCounter again.
 */
