@@ -10,7 +10,7 @@ class ButtonCounter{
 
     init(){
         this.buttonCounter.addEventListener("click", ()=>{
-
+            //CREATING MANUAL COUNTER BUTTONS
             let divManual = document.createElement("div");
             divManual.setAttribute("id", "div-counter-manual");
             divManual.innerHTML = `
@@ -21,6 +21,7 @@ class ButtonCounter{
             `;
             this.divMessages.appendChild(divManual);
 
+            //CREATING AUTOMATIC COUNTER BUTTONS
             let divAuto = document.createElement("div");
             divAuto.setAttribute("id", "div-counter-auto");
             divAuto.innerHTML = `
@@ -31,6 +32,7 @@ class ButtonCounter{
             `;
             this.divMessages.appendChild(divAuto);
 
+            //SETTING COUNTERS
             document.addEventListener("click", btn=>{
                 switch(btn.target.id){
                     case "btn-sub-manual":
