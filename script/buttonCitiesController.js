@@ -1,6 +1,6 @@
 class ButtonCities{
     constructor(divId, buttonId){
-        this.divMessages = document.getElementById(divId);
+        this.divContent = document.getElementById(divId);
         this.buttonCities = document.getElementById(buttonId);
         this.cities = {
             sp: ['Jundiaí', 'Campinas', 'Limeira', 'Atibaia'],
@@ -11,6 +11,9 @@ class ButtonCities{
 
     init(){
         this.buttonCities.addEventListener("click", ()=>{
+            //CLEARING SCREEN
+            this.divContent.innerHTML = "";
+            
             //CREATING SELECT PANEL
             let div = document.createElement("div");
             div.setAttribute("id", "div-cities");
@@ -25,7 +28,7 @@ class ButtonCities{
                 </div>
                 <button id="confirm">Confirm</button>
             `;
-            this.divMessages.appendChild(div);
+            this.divContent.appendChild(div);
 
             //CREATING CITIES PANEL
 

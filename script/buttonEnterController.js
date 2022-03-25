@@ -1,12 +1,15 @@
 class ButtonEnter{
     constructor(divId, buttonId){
-        this.divMessages = document.getElementById(divId);
+        this.divContent = document.getElementById(divId);
         this.buttonEnter = document.getElementById(buttonId);
         this.init();
     }
 
     init(){
         this.buttonEnter.addEventListener("click", ()=>{
+            //CLEARING SCREEN
+            this.divContent.innerHTML = "";
+
             let userName = this.setUserName();
             let userAge = this.setUserAge();
     
@@ -17,7 +20,7 @@ class ButtonEnter{
                 <h1>Hello ${userName}, you're ${(userAge >= 18) ? "of age" : "underage"}!</h1>
                 <h2>${(this.isNeo(userName)) ? "And you're a character from Matrix!" : ""}</h2>
             `;
-            this.divMessages.appendChild(message);
+            this.divContent.appendChild(message);
         })
     }
 

@@ -1,6 +1,6 @@
 class ButtonActors{
     constructor(divId, buttonId){
-        this.divBoxes = document.getElementById(divId);
+        this.divContent = document.getElementById(divId);
         this.buttonActors = document.getElementById(buttonId);
         this.actorsList = [
             {
@@ -24,6 +24,9 @@ class ButtonActors{
 
     init(){
         this.buttonActors.addEventListener("click", ()=>{
+            //CLEARING SCREEN
+            this.divContent.innerHTML = "";
+
             let actors = this.actorsList;
 
             for(let i = 0; i < actors.length; i++){
@@ -34,7 +37,7 @@ class ButtonActors{
                     <p>Plays the character ${actors[i].character} in the movie ${actors[i].movie}.</p>
                 `;
     
-                this.divBoxes.appendChild(divActorBox);
+                this.divContent.appendChild(divActorBox);
             }
         });
     }

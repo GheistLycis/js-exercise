@@ -1,15 +1,31 @@
 class ButtonCounter{
     constructor(divId, buttonId){
-        this.divMessages = document.getElementById(divId);
+        this.divContent = document.getElementById(divId);
         this.buttonCounter = document.getElementById(buttonId);
         this.displayManual = 0;
         this.displayAuto = 0;
         this.toggleCounter;
         this.init();
     }
+/*
+Problems:
+    -When buttonCounter is clicked more than once, the addEventListener seems to stack and the manual counters will
+    add/subtract according to the number of times buttonCounter has been clicked;
+
+    -Although this has no practical/notable effects, when clicking on another button from the top panel after 
+    activating the auto counter the adding/subtracting event won't stop until the user clicks on the buttonCounter again.
+*/
 
     init(){
         this.buttonCounter.addEventListener("click", ()=>{
+            //CLEARING SCREEN
+            this.divContent.innerHTML = "";
+
+            //RESETING COUNTERS
+            this.displayManual = 0;
+            this.displayAuto = 0;
+            clearInterval(this.toggleCounter);
+
             //CREATING MANUAL COUNTER BUTTONS
             let divManual = document.createElement("div");
             divManual.setAttribute("id", "div-counter-manual");
@@ -19,7 +35,7 @@ class ButtonCounter{
                 <button id="btn-sub-manual">-</button>
                 <button id="btn-add-manual">+</button>
             `;
-            this.divMessages.appendChild(divManual);
+            this.divContent.appendChild(divManual);
 
             //CREATING AUTOMATIC COUNTER BUTTONS
             let divAuto = document.createElement("div");
@@ -30,52 +46,50 @@ class ButtonCounter{
                 <button id="btn-sub-auto">-</button>
                 <button id="btn-add-auto">+</button>
             `;
-            this.divMessages.appendChild(divAuto);
+            this.divContent.appendChild(divAuto);
 
             //SETTING COUNTERS
-            document.addEventListener("click", btn=>{
+            this.divContent.addEventListener("click", btn=>{
                 switch(btn.target.id){
                     case "btn-sub-manual":
                         this.displayManual--;
+                        document.getElementById("display-manual").textContent = this.displayManual;
                         break;
                     case "btn-add-manual":
                         this.displayManual++;
+                        document.getElementById("display-manual").textContent = this.displayManual;
                         break;
                     case "btn-sub-auto":
-                        //btn.target.classList.add("active-red");
-                        this.toggleCounter = false;
-                        this.autoCount();
+                        this.autoCount("-");
                         break;
                     case "btn-add-auto":
-                        //btn.target.classList.add("active-green");
-                        this.toggleCounter = true;
-                        this.autoCount();
+                        this.autoCount("+");
                         break;
                     default:
+                        clearInterval(this.toggleCounter);
                         break;
                 };
-                document.getElementById("display-manual").textContent = this.displayManual;
             });
         });
     }
 
-    autoCount(){
-        if(!this.toggleCounter){
+    autoCount(op){
+        if(op == "-"){
             document.getElementById("btn-sub-auto").classList.add("active-red");
             document.getElementById("btn-add-auto").classList.remove("active-green");
-            let counter = setInterval(()=>{
+            clearInterval(this.toggleCounter);
+            this.toggleCounter = setInterval(()=>{
                 this.displayAuto--;
                 document.getElementById("display-auto").textContent = this.displayAuto;
-                if(this.toggleCounter) clearInterval(counter);
             }, 100);
         }
-        else if(this.toggleCounter){
+        else if(op == "+"){
             document.getElementById("btn-add-auto").classList.add("active-green");
             document.getElementById("btn-sub-auto").classList.remove("active-red");
-            let counter = setInterval(()=>{
+            clearInterval(this.toggleCounter);
+            this.toggleCounter = setInterval(()=>{
                 this.displayAuto++;
                 document.getElementById("display-auto").textContent = this.displayAuto;
-                if(!this.toggleCounter) clearInterval(counter);
             }, 100);
         }
     }

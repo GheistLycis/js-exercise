@@ -1,12 +1,15 @@
 class ButtonTimesTable{
     constructor(divId, buttonId){
-        this.divMessages = document.getElementById(divId);
+        this.divContent = document.getElementById(divId);
         this.buttonCalculate = document.getElementById(buttonId);
         this.init();
     }
 
     init(){
         this.buttonCalculate.addEventListener("click", ()=>{
+            //CLEARING SCREEN
+            this.divContent.innerHTML = "";
+            
             let tableDesired = prompt("What table do you wanna get?");
             let i = 0;
 
@@ -26,7 +29,7 @@ class ButtonTimesTable{
                 <h1>${tableDesired} x ${i} = ${tableDesired * i}</h1>
                 `;
             }
-            this.divMessages.appendChild(table);
+            this.divContent.appendChild(table);
         })
     }
 }
