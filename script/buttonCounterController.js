@@ -31,8 +31,8 @@ class ButtonCounter{
             `;
             this.divMessages.appendChild(divAuto);
 
-            document.addEventListener("click", e=>{
-                switch(e.target.id){
+            document.addEventListener("click", btn=>{
+                switch(btn.target.id){
                     case "btn-sub-manual":
                         this.displayManual--;
                         break;
@@ -40,10 +40,12 @@ class ButtonCounter{
                         this.displayManual++;
                         break;
                     case "btn-sub-auto":
+                        //btn.target.classList.add("active-red");
                         this.toggleCounter = false;
                         this.autoCount();
                         break;
                     case "btn-add-auto":
+                        //btn.target.classList.add("active-green");
                         this.toggleCounter = true;
                         this.autoCount();
                         break;
@@ -57,6 +59,8 @@ class ButtonCounter{
 
     autoCount(){
         if(!this.toggleCounter){
+            document.getElementById("btn-sub-auto").classList.add("active-red");
+            document.getElementById("btn-add-auto").classList.remove("active-green");
             let counter = setInterval(()=>{
                 this.displayAuto--;
                 document.getElementById("display-auto").textContent = this.displayAuto;
@@ -64,6 +68,8 @@ class ButtonCounter{
             }, 100);
         }
         else if(this.toggleCounter){
+            document.getElementById("btn-add-auto").classList.add("active-green");
+            document.getElementById("btn-sub-auto").classList.remove("active-red");
             let counter = setInterval(()=>{
                 this.displayAuto++;
                 document.getElementById("display-auto").textContent = this.displayAuto;
