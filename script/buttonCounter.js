@@ -33,7 +33,4 @@ class ButtonCounter{
             });
         });
     }
-
-    //CREATE DIV-COUNTER INSIDE DIV-MESSAGES, CONTAINING: 2 BUTTONS, + / -, AND A <H1>DISPLAYNUM<H1>
-    //ADD FUNCTION TO THE BUTTONS AND TO THE DISPLAY
 }
